@@ -1,0 +1,31 @@
+vector <int> preorder(Node* root)
+{
+    vector<int> ans;
+    Node* temp=root;
+    stack<Node *> st;
+
+if(root==NULL)
+return ans;
+    while(!st.empty() || temp!=NULL)
+    {
+        
+        while(temp!=NULL)
+        {
+            ans.push_back(temp->data);
+            if(temp->right!=NULL)
+            {
+                st.push(temp->right);
+            }
+            temp=temp->left;
+        }
+        
+      if(st.empty()==false)
+      {
+          temp=st.top();
+          st.pop();
+      }
+    
+    }
+    return ans;
+  // Your code here
+}
