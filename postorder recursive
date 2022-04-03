@@ -1,0 +1,27 @@
+class Solution {
+public:
+    void preorderUtil(TreeNode *root , vector<int> &ans)
+{
+    //base case
+    if(root == NULL)
+    {
+        return;
+    }
+    //data
+   
+    preorderUtil(root->left,ans);
+    preorderUtil(root->right,ans);
+    ans.push_back(root->val);
+    return;
+
+}
+        vector<int> postorderTraversal(TreeNode* root) {
+   
+            vector<int> ans;
+            preorderUtil(root , ans);
+            
+        return ans;
+        
+    }
+    
+};
