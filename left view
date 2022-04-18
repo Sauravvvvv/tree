@@ -1,0 +1,21 @@
+void helper(Node* node,int height, int &max, vector<int> &ans)
+{
+    if(node==NULL)
+    return;
+    if(height>max)
+    {
+        ans.push_back(node->data);
+        max=height;
+    }
+    helper(node->left,height+1,max,ans);
+    helper(node->right,height+1,max,ans);
+}
+//Function to return a list containing elements of left view of the binary tree.
+vector<int> leftView(Node *root)
+{
+    vector<int> a;
+    int max=-1;
+    helper(root,0,max,a);
+    return a;
+   // Your code here
+}
