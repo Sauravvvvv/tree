@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    int sum(Node* node)
+    {
+        if(node==NULL)
+        return 0;
+        int data=node->data;
+        int lsum = sum(node->left);
+        int rsum = sum(node->right);
+        node->data= lsum+rsum;
+        return lsum + rsum + data;
+        
+    }
+    // Convert a given tree to a tree where every node contains sum of values of
+    // nodes in left and right subtrees in the original tree
+    void toSumTree(Node *node)
+    {
+     sum(node);
+     
+   
+      
+        
+        // Your code here
+    }
+};
