@@ -1,0 +1,27 @@
+class Solution{
+    public:
+    int height(Node*root,bool &ans)
+    {
+        if(root==NULL)
+        return 0;
+        int lheight=height(root->left,ans);
+        int rheight=height(root->right,ans);
+        if (abs(lheight-rheight)>1)
+        ans=false;
+        
+        return 1 + max(lheight,rheight);
+        
+        
+         
+         
+    }
+    //Function to check whether a binary tree is balanced or not.
+    bool isBalanced(Node *root)
+    {
+        bool ans;
+        ans=true;
+        height(root,ans);
+        return ans;
+        //  Your Code here
+    }
+};
