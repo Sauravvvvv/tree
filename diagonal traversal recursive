@@ -1,0 +1,22 @@
+void helper(Node* root,map<int,vector<int>>&m,int l)
+{
+    if(root==NULL)
+    return;
+    m[l].push_back(root->data);
+    helper(root->left,m,l+1);
+    helper(root->right,m,l);
+    
+}
+
+vector<int> diagonal(Node *root)
+{
+    vector<int> ans;
+    map<int,vector<int>>h;
+    helper(root,h,0);
+    for(auto it=h.begin();it!=h.end();it++)
+    {
+      ans.insert(ans.end(),(it->second).begin(),(it->second).end());  
+    }
+    
+ return ans;  // your code here
+}
